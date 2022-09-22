@@ -2,15 +2,15 @@ import React from 'react';
 import {Routes,Route} from 'react-router-dom'
 import Cards from './components/cards'
 import AddCard from './components/addCard'
-// import {getUser} from './redux/redux/cardSlice';
-// import {dumdata} from '../redux/redux/cardSlice'
-// import {useSelector} from 'react-redux'
-// import { useState } from 'react';
+// import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import getUser from './redux/redux/usersAPI';
 
 import './App.css';
 
 function App() {
-  // const[user,setuser]= useState()
+  // const dispatch= useDispatch()
+  // useEffect (()=> dispatch(getUser()),[]);
 
   return (
     <div className="App">

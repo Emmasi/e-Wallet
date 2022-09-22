@@ -1,53 +1,29 @@
 import {createSlice } from '@reduxjs/toolkit';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getUser = createAsyncThunk("activity/getActivity"), async = ()=>{
-  return fetch(` https://randomuser.me/api/`)
-  .then((res)=>{res.json()
-    console.log(res.json)})
-  .catch((e)=> {return console.error(e.message)})
-}
 
 export const cardsSlice = createSlice({
-  name:"activity",
+  name:"card",
   initialState:{
-    user:null,
-    cards:[],
-    dumdata:[
-    {name:'Elsa',
-    lastname:'Andersson',
-    number:1233021032510412,
-    typ:'master'},
-    {name:'Elsa',
-    lastname:'Andersson',
-    number:7000111122223333,
-    typ:'Visa'}
-    ]
+    cardList:[],
+    // latestId:2,
   },
   reducers:{
-    getUser:(state,action)=>{
-      state.user=action.payload;
-      state.isLoading=false;
-    }
-    //action
-    //add new card delete m.m
+    addCard: (state, action) => {
+      // const{}=action.payload;
+      // state.cardList.push({cardnumber:cardnumber})
+      state.cardList.push(action.payload);
+      // state.latestId += 1;
+    },
+    // deleteCard: (state, action) => {
+    //   state.cardList = state.cardList.filter((card) => card.id !== action.payload);
+    // },
   },
-  extraReducers:{
-    //ändrar på statet beroende på action
-    [getUser.fulfilled]:(state,action)=>{
-      state.user = action.payload;
-      console.log(action.payload)
-    }
-  },
-  //laddar
-  [getUser.pending]: (state, action) => {
-    state.status = "Loading data...";
-  },
-  //hittar inte api ex
-  [getUser.rejected]: (state, action) => {
-    state.status = "Failed to get data";
-  },
-
+  //   extraReducers:{
+//   //hittar inte api ex
+//   [getUser.rejected]: (state, action) => {
+//     state.status = "Failed to get data";
+//   },
+// }
 })
-
+export const { addCard, deleteCard} = cardsSlice.actions;
 export default cardsSlice.reducer;
