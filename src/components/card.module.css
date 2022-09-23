@@ -7,6 +7,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.cardlayout:hover{
+    transform: scale(1.1);
+}
 .cardOver{
     border: 1px solid green;
     display: flex;

@@ -4,19 +4,17 @@ import { Link } from 'react-router-dom'
 import { addCard } from '../redux/redux/cardSlice'
 
 const AddnewCard =()=>{
+    const { latestId } = useSelector((state) => state.cardSlice);
+    const { first, last } = useSelector((state) => {
+        return state.userSlice.user;
+      });
     const dispatch = useDispatch()
-    const {latestId}=useSelector((state)=>state.activity)
+
     const addCardBtn=()=>{
         let cardNum = document.querySelector("#number").value;
-        console.log(cardNum)
-        let cardName = document.querySelector("#name").value;
-        console.log(cardName)
         let cardDate = document.querySelector("#date").value;
-        console.log(cardDate)
         let cardCcs = document.querySelector("#ccs").value;
-        console.log(cardCcs)
         let cardType = document.querySelector("#type").value
-        console.log(cardType)
         dispatch(
           addCard({
             number: cardNum,
@@ -35,9 +33,9 @@ const AddnewCard =()=>{
             <label htmlFor="number">Card number</label>
             <input type="number" id="number"/>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name"/>
-            <label htmlFor="lastName">Lastname</label>
-            <input type="text" id="lastName"/>
+            <input type="text" id="name" value={first}/>
+            <label htmlFor="lastName" >Lastname</label>
+            <input type="text" id="lastName" value={last}/>
             <div className={Style.sidenumber}>
                 <div className={Style.ontop}>
                 <label htmlFor="date">Valid Thru</label>

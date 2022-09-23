@@ -4,7 +4,6 @@ import Cards from './components/cards'
 import AddCard from './components/addCard'
 // import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import getUser from './redux/redux/usersAPI';
 
 import './App.css';
 

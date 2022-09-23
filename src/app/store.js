@@ -4,7 +4,7 @@ import userSlice from '../redux/redux/userSlice';
 
 export const store = configureStore({
     reducer: {
-      card: cardSlice, 
+      cardSlice: cardSlice, 
       userSlice:userSlice
     }
 });

@@ -2,28 +2,30 @@ import {createSlice } from '@reduxjs/toolkit';
 
 
 export const cardsSlice = createSlice({
-  name:"card",
+  name:"cardSlice",
   initialState:{
-    cardList:[],
-    // latestId:2,
+    cardList:[
+      {
+    number:1233021032510412,
+    typ:'Master',
+    date: '12okt',
+    ccs: 885,
+    id:1}
+  ],
+
+    latestId:1,
   },
   reducers:{
     addCard: (state, action) => {
       // const{}=action.payload;
       // state.cardList.push({cardnumber:cardnumber})
       state.cardList.push(action.payload);
-      // state.latestId += 1;
+      state.latestId += 1;
     },
-    // deleteCard: (state, action) => {
-    //   state.cardList = state.cardList.filter((card) => card.id !== action.payload);
-    // },
+    deleteCard: (state, action) => {
+      state.cardList = state.cardList.filter((card) => card.id !== action.payload);
+    },
   },
-  //   extraReducers:{
-//   //hittar inte api ex
-//   [getUser.rejected]: (state, action) => {
-//     state.status = "Failed to get data";
-//   },
-// }
 })
 export const { addCard, deleteCard} = cardsSlice.actions;
 export default cardsSlice.reducer;
