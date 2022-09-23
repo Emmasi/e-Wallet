@@ -7,7 +7,7 @@ export const cardsSlice = createSlice({
     cardList:[
       {
     number:1233021032510412,
-    typ:'Master',
+    type:'Master',
     date: '12okt',
     ccs: 885,
     id:1}

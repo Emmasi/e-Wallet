@@ -15,7 +15,7 @@ const Cards =()=>{
       <h1>THE ACTIVE CARD</h1>
       <button className={Style.newBtn}><Link className='linkStyle' to="/addcard">Add new card</Link></button>
     <div className={Style.cardpos}>
-      {cardList.map((card,i)=><Card number={card.number} typ={card.typ} date={card.date} ccs={card.ccs} key={i}></Card>)}
+      {cardList.map((card,i)=><Card number={card.number} type={card.type} date={card.date} ccs={card.ccs} id={card.id} key={i}></Card>)}
     </div>
     </div>
   )

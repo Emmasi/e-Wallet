@@ -39,3 +39,11 @@ select{
     font-size: 20px;
     border-radius: 8px;
   }
+.backBtn{
+    height: 30px;
+    width: 80px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 8px;
+}
