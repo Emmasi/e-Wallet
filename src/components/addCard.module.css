@@ -1,49 +1,92 @@
-.addCardLayout{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 260px;
-    margin: auto;
+.addCardLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 260px;
+  margin: auto;
 }
-input{
-    height: 25px;
-    width: 250px;
-    border: 2px solid black;
-    border-radius: 8px;
-    margin-bottom: 10px;
+input {
+  height: 25px;
+  width: 250px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
-.sidenumber{
+.sidenumber {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.sidenumber input {
+  width: 100px;
+}
+.ontop {
+  display: flex;
+  flex-direction: column;
+}
+select {
+  height: 30px;
+  width: 250px;
+  border: 2px solid black;
+}
+.addBtn {
+  margin-top: 20px;
+  height: 50px;
+  width: 260px;
+  background-color: black;
+  color: aliceblue;
+  font-size: 20px;
+  border-radius: 8px;
+}
+.backBtn {
+  height: 30px;
+  width: 80px;
+  background-color: black;
+  color: aliceblue;
+  font-size: 20px;
+  border-radius: 8px;
+}
+.createCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createCard:hover {
+  transform: none;
+}
+
+.cardlayout {
+  margin: 10px;
+  width: 350px;
+  height: 180px;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cardOver{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    padding: 0 5px;
 }
-.sidenumber input{
-    width: 100px;
+.cardMiddle{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
-.ontop{
+.cardUnder{
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px;
 }
-select{
-    height: 30px;
-    width: 250px;
-    border: 2px solid black;
+.grow{
+    font-size: 25px;
+    flex-grow: 1.3;
 }
-.addBtn{
-    margin-top: 20px;
-    height: 50px;
-    width: 260px;
-    background-color: black;
-    color: aliceblue;
-    font-size: 20px;
-    border-radius: 8px;
-  }
-.backBtn{
-    height: 30px;
-    width: 80px;
-    background-color: black;
-    color: aliceblue;
-    font-size: 20px;
-    border-radius: 8px;
+.minitext{
+    font-size: 12px;
 }

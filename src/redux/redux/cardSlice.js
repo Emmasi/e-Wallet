@@ -10,15 +10,14 @@ export const cardsSlice = createSlice({
     type:'Master',
     date: '12okt',
     ccs: 885,
-    id:1}
+    id:1,
+    activ:true}
   ],
-
+    activ:false,
     latestId:1,
   },
   reducers:{
     addCard: (state, action) => {
-      // const{}=action.payload;
-      // state.cardList.push({cardnumber:cardnumber})
       state.cardList.push(action.payload);
       state.latestId += 1;
     },

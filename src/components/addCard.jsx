@@ -2,8 +2,10 @@ import Style from "./addCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addCard } from "../redux/redux/cardSlice";
-import Card from "./card";
 import { useState } from "react";
+import User from './user'
+import { FaWifi } from "react-icons/fa";
+import {FcSimCardChip} from 'react-icons/fc'
 
 const AddnewCard = () => {
   const { latestId } = useSelector((state) => state.cardSlice);
@@ -32,21 +34,27 @@ const AddnewCard = () => {
     
   };
 
-    const [numInput, setnumInput] = useState();
+    const [numInput, setnumInput] = useState(" ");
     const [dateInput, setdateInput] = useState();
     const [cssInput, setccsInput] = useState();
     const [typeInput, settypeInput] = useState();
-
+  const splitCardNum = numInput.split('').map((num, index) => {
+      if (index === 3 || index === 7 || index === 11) {
+          return num + ' '
+      } else {
+          return num
+      }
+  }).join('')
 
 
   return (
-    <div>
-      <button className={Style.backBtn}>
-        <Link className="linkStyle" to="/">
-          Back
-        </Link>
-      </button>
-      <Card number={numInput} date={dateInput} css={cssInput} type={typeInput} />
+    <div className={Style.createCard} >
+            <div className={Style.cardlayout}>
+            <div className={Style.cardOver}><FaWifi size={30} /><h2>{typeInput}</h2></div>
+            <div className={Style.cardMiddle}><FcSimCardChip size={50}/><h3 className={Style.grow}>{splitCardNum}</h3></div>
+            <div className={Style.cardMiddle}><p>Valid Thru{dateInput}</p><p>{cssInput}</p></div>
+            <div className={Style.cardUnder}><p className={Style.minitext}>Användarens namn</p><User /></div>
+            </div>
       <div className={Style.addCardLayout}>
         <label htmlFor="number">Card number</label>
         <input type="number" id="number" onChange={e => setnumInput(e.target.value)}/>
@@ -79,6 +87,11 @@ const AddnewCard = () => {
           </Link>
         </button>
       </div>
+      <button className={Style.backBtn}>
+        <Link className="linkStyle" to="/">
+          Back
+        </Link>
+      </button>
     </div>
   );
 };
