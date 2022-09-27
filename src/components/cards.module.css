@@ -1,14 +1,19 @@
-.cardpos{
-    border: 1px solid red ;
+.cardPos{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
+}
+.activCardPos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .newBtn{
-    margin-top: 20px;
+    margin: 0px 0 50px 250px;
     height: 30px;
-    width: 80px;
     background-color: black;
     color: aliceblue;
     font-size: 20px;

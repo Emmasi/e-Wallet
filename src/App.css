@@ -21,6 +21,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+.App-footer{
+  height: 100px;
+  padding: 80px 0 0;
+}
 
 .App-link {
   color: rgb(112, 76, 182);
