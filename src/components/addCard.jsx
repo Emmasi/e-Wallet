@@ -14,10 +14,10 @@ const AddnewCard = () => {
   });
 
   const dispatch = useDispatch();
-  const [numInput, setnumInput] = useState(" ");
+  const [numInput, setnumInput] = useState("");
   const [dateInput, setdateInput] = useState();
-  const [cssInput, setccsInput] = useState();
-  const [typeInput, settypeInput] = useState();
+  const [ccvInput, setccvInput] = useState();
+  const [typeInput, settypeInput] = useState("Visa");
   const splitCardNum = numInput
     .split("")
     .map((num, index) => {
@@ -30,21 +30,16 @@ const AddnewCard = () => {
     .join("");
 
   const addCardBtn = () => {
-    let cardNum = document.querySelector("#number").value;
-    let cardDate = document.querySelector("#date").value;
-    let cardCcs = document.querySelector("#ccs").value;
-    let cardType = document.querySelector("#type").value;
-    console.log(numInput)
     if (numInput.length != 16) {
       alert('Kortnumret måste vara 16 siffror')
     }else {
       alert("Du har lagt till ett kort");
     dispatch(
       addCard({
-        number: cardNum,
-        date: cardDate,
-        ccs: cardCcs,
-        typ: cardType,
+        number: numInput,
+        date: dateInput,
+        ccv: ccvInput,
+        typ: typeInput,
         active:false,
         id: latestId + 1,
       })
@@ -69,7 +64,7 @@ const AddnewCard = () => {
         </div>
         <div className={Style.cardMiddle}>
           <p>Valid Thru{dateInput}</p>
-          <p>{cssInput}</p>
+          <p>{ccvInput}</p>
         </div>
         <div className={Style.cardUnder}>
           <p className={Style.minitext}>Användarens namn</p>
@@ -79,15 +74,16 @@ const AddnewCard = () => {
       <div className={Style.addCardLayout}>
         <label htmlFor="number">Card number</label>
         <input
-          type="number"
+          type="text"
           id="number"
+          value={numInput}
           onChange={(e) => setnumInput(e.target.value)}
         />
 
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" value={first} />
+        <input type="text" id="name" value={first ||""} readOnly/>
         <label htmlFor="lastName">Lastname</label>
-        <input type="text" id="lastName" value={last} />
+        <input type="text" id="lastName" value={last ||""} readOnly/>
 
         <div className={Style.sidenumber}>
           <div className={Style.ontop}>
@@ -95,23 +91,22 @@ const AddnewCard = () => {
             <input
               type="date"
               id="date"
+              value={dateInput}
               onChange={(e) => setdateInput(e.target.value)}
             />
           </div>
           <div className={Style.ontop}>
-            <label htmlFor="ccs">CCS</label>
+            <label htmlFor="ccv">CCV</label>
             <input
               type="number"
-              id="ccs"
-              onChange={(e) => setccsInput(e.target.value)}
+              id="ccv"
+              value={ccvInput}
+              onChange={(e) => setccvInput(e.target.value)}
             />
           </div>
         </div>
         <label htmlFor="type">Card</label>
-        <select id="type" onChange={(e) => settypeInput(e.target.value)}>
-          <option value="none" selected disabled hidden>
-            Select an Option
-          </option>
+        <select id="type" value={typeInput} onChange={(e) => settypeInput(e.target.value)}>
           <option value="Mastercard">Mastercard</option>
           <option value="Visa">Visa</option>
           <option value="AmericanExpress">American Express</option>

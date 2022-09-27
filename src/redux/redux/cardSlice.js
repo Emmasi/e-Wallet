@@ -6,7 +6,7 @@ export const cardsSlice = createSlice({
   initialState:{
     cardList:[
       {
-    number:1233021032510412,
+    number:1452145214521452,
     type:'Master',
     date: '12okt',
     ccs: 885,
@@ -25,7 +25,13 @@ export const cardsSlice = createSlice({
       state.cardList = state.cardList.filter((card) => card.id !== action.payload);
     },
     activeCard:(state,action)=>{
-      console.log("hej aktivkort")
+      const id = action.payload;
+      state.cardList = state.cardList.map((x)=>{
+        if(x.id != id){
+        return {...x, active: false}
+        }else{ return {...x, active: true}}
+
+      })
     },
   },
 })
