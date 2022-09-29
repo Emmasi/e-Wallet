@@ -37,7 +37,7 @@
   
     position: absolute;
     z-index: 1;
-    left: 35%;
+    left: -30%;
     top: 50%;
   }
   
@@ -76,4 +76,5 @@
     color: aliceblue;
     font-size: 20px;
     border-radius: 8px;
+    
 }

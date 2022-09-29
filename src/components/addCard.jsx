@@ -31,19 +31,20 @@ const AddnewCard = () => {
 
   const addCardBtn = () => {
     if (numInput.length != 16) {
-      alert('Kortnumret måste vara 16 siffror')
-    }else {
+      alert("Kortnumret måste vara 16 siffror");
+    } else {
       alert("Du har lagt till ett kort");
-    dispatch(
-      addCard({
-        number: numInput,
-        date: dateInput,
-        ccv: ccvInput,
-        typ: typeInput,
-        active:false,
-        id: latestId + 1,
-      })
-    );}
+      dispatch(
+        addCard({
+          number: numInput,
+          date: dateInput,
+          ccv: ccvInput,
+          typ: typeInput,
+          active: false,
+          id: latestId + 1,
+        })
+      );
+    }
   };
 
   return (
@@ -81,9 +82,21 @@ const AddnewCard = () => {
         />
 
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" value={first ||""} readOnly/>
+        <input
+          style={{ textTransform: "uppercase" }}
+          type="text"
+          id="name"
+          value={first || ""}
+          readOnly
+        />
         <label htmlFor="lastName">Lastname</label>
-        <input type="text" id="lastName" value={last ||""} readOnly/>
+        <input
+          style={{ textTransform: "uppercase" }}
+          type="text"
+          id="lastName"
+          value={last || ""}
+          readOnly
+        />
 
         <div className={Style.sidenumber}>
           <div className={Style.ontop}>
@@ -106,7 +119,11 @@ const AddnewCard = () => {
           </div>
         </div>
         <label htmlFor="type">Card</label>
-        <select id="type" value={typeInput} onChange={(e) => settypeInput(e.target.value)}>
+        <select
+          id="type"
+          value={typeInput}
+          onChange={(e) => settypeInput(e.target.value)}
+        >
           <option value="Mastercard">Mastercard</option>
           <option value="Visa">Visa</option>
           <option value="AmericanExpress">American Express</option>
